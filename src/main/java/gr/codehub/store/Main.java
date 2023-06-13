@@ -1,32 +1,19 @@
 package gr.codehub.store;
 
-import gr.codehub.store.model.Product;
-
-import java.util.Arrays;
+import gr.codehub.store.service.HrService;
+import gr.codehub.store.service.impl.HrServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
-        Product product = new Product();
-        product.setId(7);
-        Product product2 = new Product();
-        product2.setId(8);
-        Product[] products = new Product[3];
+        HrService service = new HrServiceImpl();
 
-        products[0]= product;
-        products[1]= product2;
-        products[2]= product;
-     //   products[3]= product2;
+        service.insertData();
+        service.printData();
+        service.deleteData();
+        service.printData();
 
-        for(Product p:products){
-            System.out.println("id= "+p.getId());
-        }
 
-        for (int i=0;i < products.length; i++){
-            System.out.println("id= "+products[i].getId());
-        }
 
-        Arrays.stream(products).forEach(p -> System.out.println(p.getId()));
 
-        System.out.println("Hello world!");
     }
 }
